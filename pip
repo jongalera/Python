@@ -1,0 +1,3 @@
+# para instalar nuevos modulos en la version 2.7 tengo que ir a c:\python27\arcgis10.4\Scripts>pip install pyperclip
+# modulos interesantes: pynpyt para interactuar con las teclas, time tiempo, comtypes y pyautocad: para trabajar en autocad, y from string import ascii_letters, xlrd for interacting with excels
+# pyperclip for copy and paste
