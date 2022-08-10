@@ -1,0 +1,7 @@
+def leerfield(shape):
+    # this function return an array with the fields of the shape file
+    ff=arcpy.ListFields(shape)
+    fff=[]
+    for f in ff:
+        fff.append(f.name)
+    return fff
