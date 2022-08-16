@@ -1,0 +1,20 @@
+import os
+import arcpy
+folder=arcpy.GetParameterAsText(0)
+mxd = arcpy.mapping.MapDocument("CURRENT")
+df = arcpy.mapping.ListDataFrames(mxd)
+TOC=[]
+for d in df:
+    layers = arcpy.mapping.ListLayers(mxd, "", d)
+    for lyr in layers:
+        if hasattr(lyr,'dataSource'):
+            TOC.append(os.path.basename(lyr.dataSource))
+arcpy.env.workspace=folder
+Directorio=[]
+falta=[]
+for f in arcpy.ListFiles():
+    if f.endswith("shp"):
+        Directorio.append(f)
+        if f not in TOC:
+            arcpy.AddWarning("Falta en TOC: " + f)
+            falta.append(f)
